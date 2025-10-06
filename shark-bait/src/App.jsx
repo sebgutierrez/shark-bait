@@ -23,7 +23,7 @@ function App() {
       case 'home':
         return <HomePage setCurrentPage={setCurrentPage} darkMode={darkMode} />
       case 'tracker':
-        return <WorldWindGlobe initialLatitude={20} initialLongitude={0} initialRange={2e7} markers={markers} />
+        return <TrackerPage />
         // return <CesiumGlobe></CesiumGlobe>
       case 'about':
         return <AboutPage darkMode={darkMode} />
@@ -93,9 +93,9 @@ function HomePage({ setCurrentPage, darkMode }) {
       )} */}
       
       <div className="hero-section">
-        <h1 className="hero-title">🦈 Shark Habitat Tracker</h1>
+        <h1 className="hero-title">🦈 Shark Bait</h1>
         <p className="hero-subtitle">
-          Protecting apex predators through NASA satellite data
+          Protecting apex predators end-to-end through NASA satellite data
         </p>
         <button 
           className="cta-button"
@@ -103,56 +103,34 @@ function HomePage({ setCurrentPage, darkMode }) {
         >
           Launch Visual Tool →
         </button>
-        
-        <div className="hero-stats">
-          <div className="stat-item">
-            <div className="stat-number">4</div>
-            <div className="stat-label">Tracked Locations</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">2</div>
-            <div className="stat-label">NASA Missions</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">100%</div>
-            <div className="stat-label">Real-Time Data</div>
-          </div>
-        </div>
       </div>
 
       <div className="features-grid">
         <div className="feature-card">
           <div className="feature-icon">🛰️</div>
           <h3>NASA Data Integration</h3>
-          <p>Utilizing SWOT and PACE mission data to track ocean eddies and phytoplankton communities</p>
+          <p>Utilizing SWOT and PACE mission data to identify suitable shark habitats</p>
           <div className="feature-badge">Satellite Data</div>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">🌊</div>
-          <h3>Foraging Hotspots</h3>
-          <p>Identify critical shark feeding areas and predict habitat use patterns in real-time</p>
-          <div className="feature-badge">AI Powered</div>
-        </div>
-        <div className="feature-card">
           <div className="feature-icon">🔬</div>
-          <h3>Predictive Modeling</h3>
+          <h3>An alternative framework for analyzing shark movement</h3>
           <p>Using network theory to model and analyze the interconnectedness of shark movement through hotspots such as eddy currents</p>
           <div className="feature-badge">Advanced Analytics</div>
         </div>
         <div className="feature-card">
           <div className="feature-icon">🌍</div>
           <h3>Conservation Impact</h3>
-          <p>Support marine ecosystem health by protecting crucial shark habitats worldwide</p>
+          <p>Helping support shark conservation through Shark Link -  a less invasive method for tracking shark movement</p>
           <div className="feature-badge">Global Scale</div>
         </div>
       </div>
 
-      <div className="mission-banner">
+      <div className="mission-banner" style={{marginBottom: "4rem"}}>
         <h2>🌊 Our Conservation Mission</h2>
         <p>
           Sharks play a vital role in maintaining healthy ocean ecosystems. By combining cutting-edge 
-          NASA satellite technology with marine biology, we're proposing alternative mathematical frameworks for helping these magnificent 
-          apex predators for future generations.
+          NASA satellite technology with marine biology, our aim is to innovate with creative ideas to support shark conservation efforts.
         </p>
         <button className="secondary-cta" onClick={() => setCurrentPage('about')}>
           Learn More About Our Work
@@ -356,6 +334,89 @@ function AboutPage({ darkMode }) {
       </div>
     </div>
   )
+}
+
+function TrackerPage() {
+
+  const [activeLayer, setActiveLayer] = useState('sst');
+
+  const layerInfo = {
+    sst: {
+      name: "Sea Surface Temperature",
+      description: "Sea surface temperature (SST) plays a crucial role in shark habitability. Sharks can be cold-blooded or warm-blooded, and they will dive, surface, or migrate to regulate their body temperature. Increasing ocean temperatures may affect their movement patterns, and these effects can cascade throughout other ocean species.",
+      source: "Data sourced from NOAA Fisheries",
+      sourceUrl: "https://www.fisheries.noaa.gov/topic/marine-life-viewing-guidelines"
+    },
+    salinity: {
+      name: "Sea Salinity",
+      description: "A shark's biology makes it challenging to stay afloat in freshwaters. Researchers have found that sharks lack a swim bladder, a gas-filled room that would help make them more buoyant. Regions with preferred salinity levels can help estimate shark-inhabitable locations.",
+      source: "Data sourced from Smithsonian Magazine",
+      sourceUrl: "https://www.smithsonianmag.com/smart-news/heres-why-sharks-prefer-salt-water-180953985/"
+    },
+    bathymetry: {
+      name: "Bathymetry",
+      description: "Ocean depth can impact food availability, which is considered the primary reason some sharks gather in specific locations. After deep diving for a period of time, they may float up to shallower areas such as reefs to warm up.",
+      source: "Information gathered from research by Copping JP and colleagues at PeerJ",
+      sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5995094/"
+    },
+    chlorophyll: {
+      name: "Chlorophyll Concentration",
+      description: "Chlorophyll levels indicate the presence of phytoplankton abundance, which are the bedrock of marine life. Without accurate measures of prey availability, it's often used as a proxy to indicate their presence. Sites with high chlorophyll concentrations correlate with the presence of sharks.",
+      source: "Information gathered by NASA Earth Observatory",
+      sourceUrl: "https://earthobservatory.nasa.gov/features/Phytoplankton"
+    }
+  };
+
+  const sharkData = [
+    {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 37.11138, lon: -75.702383},
+    {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 33.88375, lon: -77.99878},
+    {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 36.67747, lon: -75.89253},
+    // ...more shark data...
+  ];
+
+  return (
+    <div className="tracker-page">
+      {/* <div className="tracker-header">
+        <h1>Shark Habitat Tracker</h1>
+        <p>Explore shark locations and oceanic data in real-time</p>
+      </div> */}
+      <div className="tracker-container">
+        <WorldWindGlobe 
+          initialLatitude={20} 
+          initialLongitude={0} 
+          initialRange={2e7} 
+          markers={sharkData}
+        />
+      </div>
+      <div className="layer-info-container" style={{marginBottom: "4rem"}}>
+        <div className="layer-header">Diving into Key Characteristics of Shark Habitats</div>
+        <nav className="layer-nav">
+          {Object.entries(layerInfo).map(([key, layer]) => (
+            <div
+              key={key}
+              className={`layer-nav-item ${activeLayer === key ? 'active' : ''}`}
+              onClick={() => setActiveLayer(key)}
+            >
+              {layer.name}
+            </div>
+          ))}
+        </nav>
+        <div className="layer-content">
+          <p className="layer-description">
+            {layerInfo[activeLayer].description}
+          </p>
+            <a 
+              href={layerInfo[activeLayer].sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="source-link"
+            >
+              {layerInfo[activeLayer].source}
+            </a>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App

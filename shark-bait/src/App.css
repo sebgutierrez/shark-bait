@@ -1087,3 +1087,317 @@
   font-size: 0.9em;
   margin: 0;
 }
+
+.tracker-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tracker-header {
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.tracker-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.tracker-header p {
+  margin: 0.5rem 0 0;
+  opacity: 0.8;
+}
+
+.tracker-container {
+  flex: 1;
+  position: relative;
+}
+
+// ...existing code...
+
+.navbar {
+  box-shadow: 0 4px 20px var(--shadow-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  width: 100vw;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    width: 100%;
+  }
+  
+  .nav-container {
+    padding: 0 1rem;
+    height: 70px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .nav-menu {
+    padding-right: 1rem; /* Add space for overflow scrolling */
+    flex-wrap: nowrap;
+    min-width: max-content;
+  }
+}
+// ...existing code...
+
+// ...existing code...
+
+.layer-info-container {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.layer-nav {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+  gap: 24px;
+  border-bottom: 1px solid var(--card-border);
+  scrollbar-width: thin;
+}
+
+.layer-nav::-webkit-scrollbar {
+  height: 4px;
+}
+
+.layer-nav::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.layer-nav::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+.layer-nav-item {
+  color: black;
+  padding: 8px 4px;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+}
+
+.layer-nav-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--accent-primary);
+  transition: width 0.3s ease;
+}
+
+.layer-nav-item:hover::after,
+.layer-nav-item.active::after {
+  width: 100%;
+}
+
+.layer-content {
+  padding: 1rem 0 1rem 0;
+}
+
+.layer-description {
+  color: black;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.layer-source {
+  display: block;
+  color: black;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+// ...existing code...
+
+.tracker-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.layer-info-container {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  margin: 1.25rem;
+  padding: 1.25rem;
+  box-shadow: 0 0.25rem 1rem var(--shadow-color);
+  min-height: 12rem;  /* Add minimum height */
+  z-index: 1;
+}
+
+.layer-nav {
+  display: flex;
+  overflow-x: auto;
+  padding: 0.625rem 0;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 0.25rem;
+}
+
+.layer-content {
+  padding: 1rem 0;
+  min-height: 5rem;  /* Add minimum height for content */
+}
+
+// ...existing code...
+
+.tracker-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+}
+
+.layer-info-container {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  margin: 1.25rem auto; /* Center horizontally */
+  padding: 1.25rem;
+  box-shadow: 0 0.25rem 1rem var(--shadow-color);
+  min-height: 12rem;
+  z-index: 1;
+  max-width: 90%; /* Prevent touching edges */
+  width: 1200px; /* Maximum width */
+}
+
+.layer-nav {
+  display: flex;
+  overflow-x: auto;
+  padding: 0.625rem 0;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 1rem;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: thin;
+}
+
+.layer-header {
+  color: black;
+  font-weight: bold;
+  font-size; 1.2rem;
+}
+
+.source-link {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.source-link:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+// ...existing code...
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    position: relative; /* Add this for absolute positioning context */
+}
+
+.help-popup {
+    position: absolute;
+    top: 6rem; /* Position below header with gap */
+    right: 4rem;
+    width: 20rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.help-popup h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.help-popup ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.help-popup li {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.help-button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10%;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-help {
+  background-color: white;
+  font-size: 1.5rem;
+  min-width: 3rem;
+  padding: 0.25rem 0.25rem;
+}
