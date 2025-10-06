@@ -66,3 +66,63 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+        .marker-popup {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+            max-width: 250px;
+            pointer-events: none;
+        }
+        .popup-species {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 5px;
+        }
+        .popup-scientific {
+            font-style: italic;
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .popup-coords {
+            font-size: 12px;
+            color: #888;
+        }
+        .popup-dataset {
+            font-size: 11px;
+            color: #999;
+            margin-top: 5px;
+            padding-top: 5px;
+            border-top: 1px solid #eee;
+        }
+        #legend {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            max-width: 200px;
+            font-size: 13px;
+        }
+        .legend-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            border: 2px solid white;
+        }

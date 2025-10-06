@@ -2,11 +2,17 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import OpenLayersMap from './components/OpenLayersMap'
+// import OpenLayersMap from './components/OpenLayersMap'
+import WorldWindGlobe from './components/WorldWind';
+import CesiumGlobe from './components/CesiumGlobe'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
   const [darkMode, setDarkMode] = useState(true)
+
+  const markers = [
+    { id: 'nyc', latitude: 40.7128, longitude: -74.0060, label: 'New York' },
+  ];
 
   const toggleTheme = () => {
     setDarkMode(!darkMode)
@@ -17,7 +23,8 @@ function App() {
       case 'home':
         return <HomePage setCurrentPage={setCurrentPage} darkMode={darkMode} />
       case 'tracker':
-        return <OpenLayersMap />
+        return <WorldWindGlobe initialLatitude={20} initialLongitude={0} initialRange={2e7} markers={markers} />
+        // return <CesiumGlobe></CesiumGlobe>
       case 'about':
         return <AboutPage darkMode={darkMode} />
       default:
@@ -31,7 +38,7 @@ function App() {
         <div className="nav-container">
           <div className="nav-logo">
             <span className="logo-icon">🦈</span>
-            <span className="logo-text">SharkTracker</span>
+            <span className="logo-text">Shark Bait</span>
           </div>
           <div className="nav-right">
             <ul className="nav-menu">
@@ -88,13 +95,13 @@ function HomePage({ setCurrentPage, darkMode }) {
       <div className="hero-section">
         <h1 className="hero-title">🦈 Shark Habitat Tracker</h1>
         <p className="hero-subtitle">
-          Protecting apex predators through NASA satellite data and advanced predictive modeling
+          Protecting apex predators through NASA satellite data
         </p>
         <button 
           className="cta-button"
           onClick={() => setCurrentPage('tracker')}
         >
-          Launch Tracker →
+          Launch Visual Tool →
         </button>
         
         <div className="hero-stats">
@@ -129,7 +136,7 @@ function HomePage({ setCurrentPage, darkMode }) {
         <div className="feature-card">
           <div className="feature-icon">🔬</div>
           <h3>Predictive Modeling</h3>
-          <p>Mathematical frameworks linking phytoplankton data to apex predator movements</p>
+          <p>Using network theory to model and analyze the interconnectedness of shark movement through hotspots such as eddy currents</p>
           <div className="feature-badge">Advanced Analytics</div>
         </div>
         <div className="feature-card">
@@ -144,7 +151,7 @@ function HomePage({ setCurrentPage, darkMode }) {
         <h2>🌊 Our Conservation Mission</h2>
         <p>
           Sharks play a vital role in maintaining healthy ocean ecosystems. By combining cutting-edge 
-          satellite technology with marine biology, we're creating tools to protect these magnificent 
+          NASA satellite technology with marine biology, we're proposing alternative mathematical frameworks for helping these magnificent 
           apex predators for future generations.
         </p>
         <button className="secondary-cta" onClick={() => setCurrentPage('about')}>
@@ -173,12 +180,12 @@ function AboutPage({ darkMode }) {
         </>
       )} */}
       <div className="about-container">
-        <div className="about-hero">
+        {/* <div className="about-hero">
           <h1>🦈 Shark Habitat Tracker</h1>
           <p className="about-tagline">
             Protecting apex predators through NASA satellite data and predictive modeling
           </p>
-        </div>
+        </div> */}
         
         <section className="about-section mission-section">
           <h2>Our Mission</h2>
@@ -311,7 +318,40 @@ function AboutPage({ darkMode }) {
             and predictive models. Together, we can protect these magnificent apex predators 
             and the ecosystems they support.
           </p>
-          <p className="contact-email">📧 research@sharktracker.org</p>
+          
+          <div className="conservation-links">
+            <h3>Support Shark Conservation</h3>
+            <div className="org-grid">
+              <a href="https://www.sharks.org/" target="_blank" rel="noopener noreferrer" className="org-link">
+                <span className="org-icon">🦈</span>
+                <div className="org-info">
+                  <h4>Shark Research Institute</h4>
+                  <p>Global shark research and conservation programs</p>
+                </div>
+              </a>
+              <a href="https://www.projectaware.org/" target="_blank" rel="noopener noreferrer" className="org-link">
+                <span className="org-icon">🌊</span>
+                <div className="org-info">
+                  <h4>Project AWARE</h4>
+                  <p>Ocean conservation through diver community action</p>
+                </div>
+              </a>
+              <a href="https://www.sharkstewards.org/" target="_blank" rel="noopener noreferrer" className="org-link">
+                <span className="org-icon">🛡️</span>
+                <div className="org-info">
+                  <h4>Shark Stewards</h4>
+                  <p>Protecting sharks through science and advocacy</p>
+                </div>
+              </a>
+              <a href="https://www.sharktrust.org/" target="_blank" rel="noopener noreferrer" className="org-link">
+                <span className="org-icon">🔬</span>
+                <div className="org-info">
+                  <h4>Shark Trust</h4>
+                  <p>Scientific research and shark conservation initiatives</p>
+                </div>
+              </a>
+            </div>
+          </div>
         </section>
       </div>
     </div>
