@@ -52,7 +52,7 @@ function App() {
                 <a onClick={() => setCurrentPage('shark-link')}>Shark Link</a>
               </li>
               <li className={currentPage === 'tracker' ? 'active' : ''}>
-                <a onClick={() => setCurrentPage('tracker')}>Tracker</a>
+                <a onClick={() => setCurrentPage('tracker')}>Shark Bait</a>
               </li>
               <li className={currentPage === 'about' ? 'active' : ''}>
                 <a onClick={() => setCurrentPage('about')}>About</a>
@@ -139,7 +139,7 @@ function HomePage({ setCurrentPage, darkMode }) {
           NASA satellite technology with marine biology, our aim is to innovate with creative ideas to support shark conservation efforts.
         </p>
         <button className="secondary-cta" onClick={() => setCurrentPage('about')}>
-          Learn More About Our Work
+          Get Involved
         </button>
       </div>
     </div>
@@ -231,10 +231,10 @@ function AboutPage({ darkMode }) {
           </p>
         </section>
 
-        <section className="about-section contact-section">
+        <section className="about-section">
           <h2>Get Involved</h2>
           <p>
-            While we try to innovate on tagging technology and shark behavior analysis, there are shark conservation efforts that are putting the latest research into practice <i>right now</i>. We encourage you to explore these organizations.
+            While we try to innovate on tagging technology and shark foraging behavior analysis, there are shark conservation efforts that are putting the latest research into practice <i style={{color: "#0077be"}}>right now</i>. We encourage you to explore these organizations.
           </p>
           <div className="org-grid">
             <a href="https://www.sharks.org/" target="_blank" rel="noopener noreferrer" className="org-link">
@@ -297,7 +297,7 @@ function TrackerPage() {
     },
     chlorophyll: {
       name: "Chlorophyll Concentration",
-      description: "Chlorophyll levels indicate the presence of phytoplankton abundance, which are the bedrock of marine life. Without accurate measures of prey availability, it's often used as a proxy to indicate their presence. Sites with high chlorophyll concentrations correlate with the presence of sharks.",
+      description: "Chlorophyll levels indicate the presence of phytoplankton abundance, which are the bedrock of marine ecosystems. Without accurate measures of prey availability, it's often used as a proxy for reasonable estimates. Sites with high chlorophyll concentrations correlate with the presence of sharks.",
       source: "Information gathered by NASA Earth Observatory",
       sourceUrl: "https://earthobservatory.nasa.gov/features/Phytoplankton"
     }
@@ -369,20 +369,48 @@ function SharkLink() {
         </div>
         <div className="sharklink-container">
           <section className="concept-section">
-            <h2>The Concept</h2>
-            <p style={{paddingBottom: "1rem"}}>
-              We developed a new conceptual model for a shark tracking tag that minimizes human 
-              intervention and harm for the sharks while maximizing data intake and reusability. 
-              While NASA satellites capture valuable environmental data, accurate field measurements 
-              remain crucial for tracking sharks effectively.
-            </p>
+            <div className="concept-content">
+              <h2>Concept</h2>
+              <p style={{paddingBottom: "1rem"}}>
+                We developed a new conceptual model for a shark tracking tag that minimizes human 
+                intervention and harm for the sharks while maximizing data intake and reusability. 
+                While NASA satellites capture valuable environmental data, accurate field measurements 
+                remain crucial for tracking sharks effectively.
+              </p>
+            </div>
             <div className="concept-image">
-              <img src={SharkLinkPNG} alt="" height={200} width={200} style={{marginTop: "1rem", borderRadius: "0.75rem"}}></img>
+              <img src={SharkLinkPNG} alt="" height={250} width={250} style={{borderRadius: "0.75rem"}}></img>
               {/* <div className="image-placeholder">Concept Image of Shark Link Capsule</div> */}
             </div>
           </section>
 
-          <section className="features-section">
+          <section className="process-section">
+            <h2>How It Works</h2>
+            <div className="process-steps">
+              <div className="step">
+                <h3>1. Ingestion</h3>
+                <p>The capsule-shaped tag is consumed by sharks naturally</p>
+              </div>
+              <div className="step">
+                <h3>2. Data Collection</h3>
+                <p>Temperature changes confirm proper placement in the shark's stomach, enabling food composition analysis</p>
+              </div>
+              <div className="step">
+                <h3>3. Monitoring</h3>
+                <p>Collects depth and movement data over several days</p>
+              </div>
+              <div className="step">
+                <h3>4. Data Relay</h3>
+                <p>Information is continuously transmitted to surface buoys or oil/gas rigs, then relayed to NASA satellites</p>
+              </div>
+              <div className="step">
+                <h3>5. Reusability</h3>
+                <p>The tag naturally passes through the shark and floats up for reuse</p>
+              </div>
+            </div>
+          </section>
+
+          {/* <section className="features-section">
             <h2>Key Features</h2>
             <div className="features-grid">
               <div className="feature-card">
@@ -406,33 +434,7 @@ function SharkLink() {
                 <p>Analyzes food composition and feeding patterns</p>
               </div>
             </div>
-          </section>
-
-          <section className="process-section">
-            <h2>How It Works</h2>
-            <div className="process-steps">
-              <div className="step">
-                <h3>1. Ingestion</h3>
-                <p>The capsule-shaped tag is consumed by sharks naturally</p>
-              </div>
-              <div className="step">
-                <h3>2. Data Collection</h3>
-                <p>Temperature changes confirm proper placement in the shark's stomach, enabling food composition analysis</p>
-              </div>
-              <div className="step">
-                <h3>3. Monitoring</h3>
-                <p>Collects depth and movement data over several days</p>
-              </div>
-              <div className="step">
-                <h3>4. Data Relay</h3>
-                <p>Information is transmitted to surface buoys or rigs, then relayed to satellites</p>
-              </div>
-              <div className="step">
-                <h3>5. Reusability</h3>
-                <p>The tag naturally passes through the shark and floats up for reuse</p>
-              </div>
-            </div>
-          </section>
+          </section> */}
 
           <section className="benefits-section">
             <h2>Benefits</h2>
@@ -440,8 +442,7 @@ function SharkLink() {
               <li>Minimally invasive tracking method</li>
               <li>Real-time data updates, even from beneath the surface</li>
               <li>Reusable design reduces environmental impact</li>
-              <li>Comprehensive data collection for research</li>
-              <li>Enhanced understanding of shark behavior and movements</li>
+              <li>Improves data collection for research into shark foraging behavior</li>
             </ul>
           </section>
         </div>

@@ -1393,7 +1393,7 @@
 .help-popup {
     position: absolute;
     top: 4rem; /* Position below header with gap */
-    right: 4rem;
+    right: 8.25rem;
     width: 20rem;
     background: var(--bg-secondary);
     border: 1px solid var(--card-border);
@@ -1423,24 +1423,35 @@
 }
 
 .help-button {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 10%;
-    background: white;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
+  width: 2rem;
+  height: 2rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: rgba(0, 168, 232, 0.75); // --accent-secondary
+}
+
+.dark-mode .help-button {
+  background: rgba(0, 168, 232, 0.25);
 }
 
 .close-help {
-  background-color: white;
-  font-size: 1.5rem;
-  min-width: 3rem;
-  padding: 0.25rem 0.25rem;
+  position: absolute;
+  color: white;
+  font-size: 1.25rem;
+  min-width: 2.5rem;
+  padding: 0.1rem 0.1rem;
+  top: 12px; 
+  right: 12px;
+  background: rgba(0, 168, 232, 0.75); // --accent-secondary
+}
+
+.dark-mode .close-help {
+  background: rgba(0, 168, 232, 0.25);
 }
 
 .sharklink-page {
@@ -1792,4 +1803,29 @@
   .sharklink-container section {
     padding: 1.5rem;
   }
+}
+
+.concept-section {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.concept-content p {
+  padding: 0 2rem;
+}
+
+.concept-image img {
+  margin: 0 2rem;
+}
+
+.light-mode .about-section p {
+  
+}
+
+.org-grid a {
+  background: rgba(0, 119, 190, 0.1);
+}
+
+.org-info h4 {
+  color: #0077be;
 }

@@ -59,12 +59,12 @@ export default function WorldWindGlobe({
 	
 	// Define layers configuration
 	const layerConfig = {
-		sst: { name: "Sea Surface Temperature", layer: null, defaultChecked: false },
-		salinity: { name: "Sea Salinity", layer: null, defaultChecked: false },
-		bathymetry: { name: "Bathymetry", layer: null, defaultChecked: false },
-		chlorophyll: { name: "Chlorophyll Concentration", layer: null, defaultChecked: false },
-		sharks: { name: "Shark Locations", layer: null, defaultChecked: true },
-		hotspots: { name: "Predicted Hotspots", layer: null, defaultedChecked: false }
+		sst: { name: "Sea Surface Temperature", layer: null, defaultChecked: false, nasaSourced: true, disable: false },
+		salinity: { name: "Sea Salinity", layer: null, defaultChecked: false, nasaSourced: true, disable: false  },
+		bathymetry: { name: "Bathymetry", layer: null, defaultChecked: false, nasaSourced: true, disable: false  },
+		chlorophyll: { name: "Chlorophyll Concentration", layer: null, defaultChecked: false, nasaSourced: true, disable: false  },
+		sharks: { name: "Shark Locations", layer: null, defaultChecked: true, nasaSourced: false, disable: false  },
+		hotspots: { name: "Predicted Hotspots", layer: null, defaultedChecked: false, nasaSourced: false, disable: true  }
 	};
 	const [isPredicting, setIsPredicting] = useState(false);
 
@@ -257,14 +257,16 @@ export default function WorldWindGlobe({
 						{Object.entries(layerConfig).map(([id, layer]) => (
 							<div key={id} className="layer-control">
 								<label>
-									<input
-										type="checkbox"
-										data-layer-id={id}
-										defaultChecked={layer.defaultChecked}
-										onChange={handleLayerToggle}
-										id={`layer-${id}`}
-									/>
-									<span>{layer.name}</span>
+									{ layer.name !== "Predicted Hotspots" && layer.name !== "Shark Locations" ?
+										(<input
+											type="checkbox"
+											data-layer-id={id}
+											defaultChecked={layer.defaultChecked}
+											onChange={handleLayerToggle}
+											id={`layer-${id}`}
+										/>) : null
+									}
+									<span>{ layer.name !== "Predicted Hotspots" && layer.name !== "Shark Locations" && layer.name }{ layer.nasaSourced && <span style={{color: "red"}}> *</span> }</span>
 								</label>
 							</div>
 						))}
@@ -288,7 +290,7 @@ export default function WorldWindGlobe({
 							rel="noopener noreferrer"
 							className="sources-link"
 						>
-							Data sourced from PACE
+							* Data sourced from NASA Earth Observations (NEO)
 						</a>
 					</div>
 				</div>

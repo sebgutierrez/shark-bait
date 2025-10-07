@@ -266,10 +266,13 @@
   padding: 0.75rem 0.75rem 0.75rem 0.75rem;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
   color: #ffffff; /* Light text for contrast */
-  background: var(--card-bg);
+  background: white;
   border: 1px solid var(--card-border);
 }
 
+.dark-mode .data-layer-sources {
+  background: #0a1929; // linear-gradient(180deg, #0a1929 100%, #1a2c42 100%, #2d4a64 100%);
+}
 
 .sources-link {
 
