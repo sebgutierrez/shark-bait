@@ -215,70 +215,73 @@ export default function WorldWindGlobe({
 	};
 
 	return (
-		<div style={containerStyle} className="worldwind-container">
-			<div className="layer-panel" style={{display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
-				<div className="panel-header">
-                    <div className="header-content">
-						<span className="header-title">Data Layers</span>
-						<button 
-							className="help-button"
-							onClick={() => setShowHelp(!showHelp)}
-							aria-label="Toggle help guide"
-						>
-							?
-						</button>
-					</div>
-					{showHelp && (
-						<div className="help-popup">
-							<div className="" style={{display: "flex", width: "100%", justifyContent: "flex-end"}}>
-								<button 
-									className="close-help"
-									onClick={() => setShowHelp(false)}
-									aria-label="Close help guide"
-								>
-									×
-								</button>
+		<div className="">
+			<div style={containerStyle} className="worldwind-container">
+				<div className="layer-panel" style={{display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
+					<div className="panel-header">
+						<div className="header-content">
+							<span className="header-title">Data Layers</span>
+							<button 
+								className="help-button"
+								onClick={() => setShowHelp(!showHelp)}
+								aria-label="Toggle help guide"
+							>
+								?
+							</button>
+						</div>
+						{showHelp && (
+							<div className="help-popup">
+								<div className="" style={{display: "flex", width: "100%", justifyContent: "flex-end"}}>
+									<button 
+										className="close-help"
+										onClick={() => setShowHelp(false)}
+										aria-label="Close help guide"
+									>
+										×
+									</button>
+								</div>
+								<h3>Layer Guide</h3>
+								<ul>
+									<li>Use checkboxes to toggle data layers on/off</li>
+									<li>Sea Surface Temperature shows water temperature variations</li>
+									<li>Sea Salinity displays salt content levels</li>
+									<li>Bathymetry reveals ocean depth data</li>
+									<li>Chlorophyll indicates marine life activity areas</li>
+									<li>Shark Locations shows tracked shark positions</li>
+									<li>Click the Discover button to view the model's shark hotspot predictions and play with the toggles to see how they influenced the predictions</li>
+								</ul>
 							</div>
-							<h3>Layer Guide</h3>
-							<ul>
-								<li>Use checkboxes to toggle data layers on/off</li>
-								<li>Sea Surface Temperature shows water temperature variations</li>
-								<li>Sea Salinity displays salt content levels</li>
-								<li>Bathymetry reveals ocean depth data</li>
-								<li>Chlorophyll indicates marine life activity areas</li>
-								<li>Shark Locations shows tracked shark positions</li>
-								<li>Click the Discover button to view the model's shark hotspot predictions and play with the toggles to see how they influenced the predictions</li>
-							</ul>
-						</div>
-                    )}
-                </div>
-				<div style={{display: "flex", flexDirection: "column"}}>
-					{Object.entries(layerConfig).map(([id, layer]) => (
-						<div key={id} className="layer-control">
-							<label>
-								<input
-									type="checkbox"
-									data-layer-id={id}
-									defaultChecked={layer.defaultChecked}
-									onChange={handleLayerToggle}
-									id={`layer-${id}`}
-								/>
-								<span>{layer.name}</span>
-							</label>
-						</div>
-					))}
+						)}
+					</div>
+					<div style={{display: "flex", flexDirection: "column"}}>
+						{Object.entries(layerConfig).map(([id, layer]) => (
+							<div key={id} className="layer-control">
+								<label>
+									<input
+										type="checkbox"
+										data-layer-id={id}
+										defaultChecked={layer.defaultChecked}
+										onChange={handleLayerToggle}
+										id={`layer-${id}`}
+									/>
+									<span>{layer.name}</span>
+								</label>
+							</div>
+						))}
+					</div>
+					<button className="discover-button" onClick={() => {}}>
+						Discover
+					</button>
 				</div>
-				<button className="discover-button" onClick={() => {}}>
-					Discover
-				</button>
-			</div>
-			<div className="globe-container">
-				<canvas
-					ref={canvasRef}
-					style={{ width: "100%", height: "100%", display: "block" }}
-					aria-label="WorldWind globe canvas"
-				/>
-				<div style={{ display: "block", position: "relative", width: "100%", height: "100%", backgroundColor: "#808080"}}></div>
+				<div className="globe-container">
+					<div className="globe-backdrop">
+						<canvas
+							ref={canvasRef}
+							aria-label="WorldWind globe canvas"
+							className="globe-canvas"
+						/>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

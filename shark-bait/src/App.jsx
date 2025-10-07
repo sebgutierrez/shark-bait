@@ -394,31 +394,33 @@ function TrackerPage() {
           markers={sharkData}
         />
       </div>
-      <div className="layer-info-container" style={{marginBottom: "4rem"}}>
+      <div className="">
         <div className="layer-header">Diving into Key Characteristics of Shark Habitats</div>
-        <nav className="layer-nav">
-          {Object.entries(layerInfo).map(([key, layer]) => (
-            <div
-              key={key}
-              className={`layer-nav-item ${activeLayer === key ? 'active' : ''}`}
-              onClick={() => setActiveLayer(key)}
-            >
-              {layer.name}
-            </div>
-          ))}
-        </nav>
-        <div className="layer-content">
-          <p className="layer-description">
-            {layerInfo[activeLayer].description}
-          </p>
-            <a 
-              href={layerInfo[activeLayer].sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="source-link"
-            >
-              {layerInfo[activeLayer].source}
-            </a>
+        <div className="layer-info-container" style={{marginBottom: "4rem"}}>
+          <nav className="layer-nav">
+            {Object.entries(layerInfo).map(([key, layer]) => (
+              <div
+                key={key}
+                className={`layer-nav-item ${activeLayer === key ? 'active' : ''}`}
+                onClick={() => setActiveLayer(key)}
+              >
+                {layer.name}
+              </div>
+            ))}
+          </nav>
+          <div className="layer-content">
+            <p className="layer-description">
+              {layerInfo[activeLayer].description}
+            </p>
+              <a 
+                href={layerInfo[activeLayer].sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="source-link"
+              >
+                {layerInfo[activeLayer].source}
+              </a>
+          </div>
         </div>
       </div>
     </div>
@@ -428,90 +430,91 @@ function TrackerPage() {
 function SharkLink() {
   return (
     <div className="sharklink-page">
-      <div className="sharklink-hero">
-        <h1>Shark Link</h1>
-        <p className="hero-subtitle">
-          Innovating in shark tagging technology with minimally invasive technology
-        </p>
-      </div>
-
-      <div className="sharklink-container">
-        <section className="concept-section">
-          <h2>The Concept</h2>
-          <p style={{paddingBottom: "1rem"}}>
-            We developed a new conceptual model for a shark tracking tag that minimizes human 
-            intervention and harm for the sharks while maximizing data intake and reusability. 
-            While NASA satellites capture valuable environmental data, accurate field measurements 
-            remain crucial for tracking sharks effectively.
+      <div className="" style={{maxWidth: "1200px", margin: "0 auto"}}>
+        <div className="sharklink-hero">
+          <h1>Shark Link</h1>
+          <p className="hero-subtitle">
+            Innovating in shark tagging technology with minimally invasive technology
           </p>
-          <div className="concept-image">
-            <img src={SharkLinkPNG} alt="" height={200} width={200} style={{marginTop: "1rem", borderRadius: "0.75rem"}}></img>
-            {/* <div className="image-placeholder">Concept Image of Shark Link Capsule</div> */}
-          </div>
-        </section>
+        </div>
+        <div className="sharklink-container">
+          <section className="concept-section">
+            <h2>The Concept</h2>
+            <p style={{paddingBottom: "1rem"}}>
+              We developed a new conceptual model for a shark tracking tag that minimizes human 
+              intervention and harm for the sharks while maximizing data intake and reusability. 
+              While NASA satellites capture valuable environmental data, accurate field measurements 
+              remain crucial for tracking sharks effectively.
+            </p>
+            <div className="concept-image">
+              <img src={SharkLinkPNG} alt="" height={200} width={200} style={{marginTop: "1rem", borderRadius: "0.75rem"}}></img>
+              {/* <div className="image-placeholder">Concept Image of Shark Link Capsule</div> */}
+            </div>
+          </section>
 
-        <section className="features-section">
-          <h2>Key Features</h2>
-          <div className="features-grid">
-            <div className="feature-card">
-              <span className="feature-icon">📍</span>
-              <h3>Location</h3>
-              <p>Precise tracking of shark movements and migration patterns</p>
+          <section className="features-section">
+            <h2>Key Features</h2>
+            <div className="features-grid">
+              <div className="feature-card">
+                <span className="feature-icon">📍</span>
+                <h3>Location</h3>
+                <p>Precise tracking of shark movements and migration patterns</p>
+              </div>
+              <div className="feature-card">
+                <span className="feature-icon">🌡️</span>
+                <h3>Temperature</h3>
+                <p>Monitors environmental conditions and confirms proper placement</p>
+              </div>
+              <div className="feature-card">
+                <span className="feature-icon">📊</span>
+                <h3>Depth</h3>
+                <p>Tracks vertical movement and diving patterns</p>
+              </div>
+              <div className="feature-card">
+                <span className="feature-icon">🍽️</span>
+                <h3>Eating Habits</h3>
+                <p>Analyzes food composition and feeding patterns</p>
+              </div>
             </div>
-            <div className="feature-card">
-              <span className="feature-icon">🌡️</span>
-              <h3>Temperature</h3>
-              <p>Monitors environmental conditions and confirms proper placement</p>
-            </div>
-            <div className="feature-card">
-              <span className="feature-icon">📊</span>
-              <h3>Depth</h3>
-              <p>Tracks vertical movement and diving patterns</p>
-            </div>
-            <div className="feature-card">
-              <span className="feature-icon">🍽️</span>
-              <h3>Eating Habits</h3>
-              <p>Analyzes food composition and feeding patterns</p>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="process-section">
-          <h2>How It Works</h2>
-          <div className="process-steps">
-            <div className="step">
-              <h3>1. Ingestion</h3>
-              <p>The capsule-shaped tag is consumed by sharks naturally</p>
+          <section className="process-section">
+            <h2>How It Works</h2>
+            <div className="process-steps">
+              <div className="step">
+                <h3>1. Ingestion</h3>
+                <p>The capsule-shaped tag is consumed by sharks naturally</p>
+              </div>
+              <div className="step">
+                <h3>2. Data Collection</h3>
+                <p>Temperature changes confirm proper placement in the shark's stomach, enabling food composition analysis</p>
+              </div>
+              <div className="step">
+                <h3>3. Monitoring</h3>
+                <p>Collects depth and movement data over several days</p>
+              </div>
+              <div className="step">
+                <h3>4. Data Relay</h3>
+                <p>Information is transmitted to surface buoys or rigs, then relayed to satellites</p>
+              </div>
+              <div className="step">
+                <h3>5. Reusability</h3>
+                <p>The tag naturally passes through the shark and floats up for reuse</p>
+              </div>
             </div>
-            <div className="step">
-              <h3>2. Data Collection</h3>
-              <p>Temperature changes confirm proper placement in the shark's stomach, enabling food composition analysis</p>
-            </div>
-            <div className="step">
-              <h3>3. Monitoring</h3>
-              <p>Collects depth and movement data over several days</p>
-            </div>
-            <div className="step">
-              <h3>4. Data Relay</h3>
-              <p>Information is transmitted to surface buoys or rigs, then relayed to satellites</p>
-            </div>
-            <div className="step">
-              <h3>5. Reusability</h3>
-              <p>The tag naturally passes through the shark and floats up for reuse</p>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="benefits-section">
-          <h2>Benefits</h2>
-          <ul className="benefits-list">
-            <li>Minimally invasive tracking method</li>
-            <li>Real-time data updates, even from beneath the surface</li>
-            <li>Reusable design reduces environmental impact</li>
-            <li>Comprehensive data collection for research</li>
-            <li>Enhanced understanding of shark behavior and movements</li>
-          </ul>
-        </section>
+          <section className="benefits-section">
+            <h2>Benefits</h2>
+            <ul className="benefits-list">
+              <li>Minimally invasive tracking method</li>
+              <li>Real-time data updates, even from beneath the surface</li>
+              <li>Reusable design reduces environmental impact</li>
+              <li>Comprehensive data collection for research</li>
+              <li>Enhanced understanding of shark behavior and movements</li>
+            </ul>
+          </section>
+        </div>
       </div>
     </div>
   );
