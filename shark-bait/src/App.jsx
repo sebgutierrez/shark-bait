@@ -4,9 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import BuoyPNG from './assets/Buoy.png';
 import SharkLinkPNG from './assets/SharkLink.png';
-// import OpenLayersMap from './components/OpenLayersMap'
 import WorldWindGlobe from './components/WorldWind';
-import CesiumGlobe from './components/CesiumGlobe'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -67,7 +65,6 @@ function App() {
       <div className="page-content">
         {renderPage()}
       </div>
-      {/* {darkMode && <div className="underwater-effect"></div>} */}
     </div>
   )
 }
@@ -75,29 +72,6 @@ function App() {
 function HomePage({ setCurrentPage, darkMode }) {
   return (
     <div className="home-page">
-      {/* {darkMode && (
-        <>
-          <div className="ocean-waves">
-            <div className="wave wave1"></div>
-            <div className="wave wave2"></div>
-            <div className="wave wave3"></div>
-          </div>
-          <div className="light-rays">
-            <div className="ray ray1"></div>
-            <div className="ray ray2"></div>
-            <div className="ray ray3"></div>
-            <div className="ray ray4"></div>
-          </div>
-          <div className="bubbles">
-            <div className="bubble"></div>
-            <div className="bubble"></div>
-            <div className="bubble"></div>
-            <div className="bubble"></div>
-            <div className="bubble"></div>
-          </div>
-        </>
-      )} */}
-      
       <div className="hero-section">
         <h1 className="hero-title">🦈 Shark Bait</h1>
         <p className="hero-subtitle">
@@ -149,27 +123,7 @@ function HomePage({ setCurrentPage, darkMode }) {
 function AboutPage({ darkMode }) {
   return (
     <div className="about-page">
-      {/* {darkMode && (
-        <>
-          <div className="light-rays">
-            <div className="ray ray1"></div>
-            <div className="ray ray2"></div>
-            <div className="ray ray3"></div>
-          </div>
-          <div className="bubbles">
-            <div className="bubble"></div>
-            <div className="bubble"></div>
-            <div className="bubble"></div>
-          </div>
-        </>
-      )} */}
       <div className="about-container">
-        {/* <div className="about-hero">
-          <h1>🦈 Shark Habitat Tracker</h1>
-          <p className="about-tagline">
-            Protecting apex predators through NASA satellite data and predictive modeling
-          </p>
-        </div> */}
         
         <section className="about-section mission-section">
           <h2>NASA Space Apps Challenge</h2>
@@ -312,16 +266,16 @@ function TrackerPage() {
 
   return (
     <div className="tracker-page">
-      {/* <div className="tracker-header">
-        <h1>Shark Habitat Tracker</h1>
-        <p>Explore shark locations and oceanic data in real-time</p>
-      </div> */}
+      <div className="tracker-header">
+        <h1>Shark Bait Locator</h1>
+        <p>See how different NASA satellite measurements influence shark locations. Filter for the data layers you want to see.</p>
+        <p style={{fontSize: "0.75rem"}}>[ Unfortunately, data layer functionality was not fully implemented in time so this is a prototype. ]</p>
+      </div>
       <div className="tracker-container">
         <WorldWindGlobe 
           initialLatitude={20} 
           initialLongitude={0} 
           initialRange={2e7} 
-          markers={sharkData}
         />
       </div>
       <div className="">
