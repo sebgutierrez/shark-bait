@@ -209,7 +209,7 @@ function AboutPage({ darkMode }) {
             </div>
             <div className="tech-item">
               <span className="tech-icon">🗺️</span>
-              <span>OpenLayers</span>
+              <span>NASA WorldWind</span>
             </div>
             <div className="tech-item">
               <span className="tech-icon">🐍</span>

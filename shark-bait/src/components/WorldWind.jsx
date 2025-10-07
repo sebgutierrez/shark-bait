@@ -283,6 +283,16 @@ export default function WorldWindGlobe({
 							className="globe-canvas"
 						/>
 					</div>
+					<div className="data-layer-sources worldwind">
+						<a
+						    href="https://github.com/NASAWorldWind/WebWorldWind"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="sources-link"
+						>
+							3D Visuals produced using NASA WorldWind
+						</a>
+					</div>
 					<div className="data-layer-sources">
 						<a
 						    href="https://neo.gsfc.nasa.gov/view.php?datasetId=MYD28M"
