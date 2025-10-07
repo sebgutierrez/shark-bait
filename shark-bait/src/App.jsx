@@ -2,6 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import BuoyPNG from './assets/Buoy.png';
+import SharkLinkPNG from './assets/SharkLink.png';
 // import OpenLayersMap from './components/OpenLayersMap'
 import WorldWindGlobe from './components/WorldWind';
 import CesiumGlobe from './components/CesiumGlobe'
@@ -22,9 +24,10 @@ function App() {
     switch(currentPage) {
       case 'home':
         return <HomePage setCurrentPage={setCurrentPage} darkMode={darkMode} />
+      case 'shark-link':
+        return <SharkLink />
       case 'tracker':
         return <TrackerPage />
-        // return <CesiumGlobe></CesiumGlobe>
       case 'about':
         return <AboutPage darkMode={darkMode} />
       default:
@@ -44,6 +47,9 @@ function App() {
             <ul className="nav-menu">
               <li className={currentPage === 'home' ? 'active' : ''}>
                 <a onClick={() => setCurrentPage('home')}>Home</a>
+              </li>
+              <li className={currentPage === 'shark-link' ? 'active' : ''}>
+                <a onClick={() => setCurrentPage('shark-link')}>Shark Link</a>
               </li>
               <li className={currentPage === 'tracker' ? 'active' : ''}>
                 <a onClick={() => setCurrentPage('tracker')}>Tracker</a>
@@ -367,12 +373,12 @@ function TrackerPage() {
     }
   };
 
-  const sharkData = [
-    {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 37.11138, lon: -75.702383},
-    {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 33.88375, lon: -77.99878},
-    {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 36.67747, lon: -75.89253},
-    // ...more shark data...
-  ];
+  // const sharkData = [
+  //   {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 37.11138, lon: -75.702383},
+  //   {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 33.88375, lon: -77.99878},
+  //   {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 36.67747, lon: -75.89253},
+  //   // ...more shark data...
+  // ];
 
   return (
     <div className="tracker-page">
@@ -414,6 +420,98 @@ function TrackerPage() {
               {layerInfo[activeLayer].source}
             </a>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function SharkLink() {
+  return (
+    <div className="sharklink-page">
+      <div className="sharklink-hero">
+        <h1>Shark Link</h1>
+        <p className="hero-subtitle">
+          Innovating in shark tagging technology with minimally invasive technology
+        </p>
+      </div>
+
+      <div className="sharklink-container">
+        <section className="concept-section">
+          <h2>The Concept</h2>
+          <p style={{paddingBottom: "1rem"}}>
+            We developed a new conceptual model for a shark tracking tag that minimizes human 
+            intervention and harm for the sharks while maximizing data intake and reusability. 
+            While NASA satellites capture valuable environmental data, accurate field measurements 
+            remain crucial for tracking sharks effectively.
+          </p>
+          <div className="concept-image">
+            <img src={SharkLinkPNG} alt="" height={200} width={200} style={{marginTop: "1rem", borderRadius: "0.75rem"}}></img>
+            {/* <div className="image-placeholder">Concept Image of Shark Link Capsule</div> */}
+          </div>
+        </section>
+
+        <section className="features-section">
+          <h2>Key Features</h2>
+          <div className="features-grid">
+            <div className="feature-card">
+              <span className="feature-icon">📍</span>
+              <h3>Location</h3>
+              <p>Precise tracking of shark movements and migration patterns</p>
+            </div>
+            <div className="feature-card">
+              <span className="feature-icon">🌡️</span>
+              <h3>Temperature</h3>
+              <p>Monitors environmental conditions and confirms proper placement</p>
+            </div>
+            <div className="feature-card">
+              <span className="feature-icon">📊</span>
+              <h3>Depth</h3>
+              <p>Tracks vertical movement and diving patterns</p>
+            </div>
+            <div className="feature-card">
+              <span className="feature-icon">🍽️</span>
+              <h3>Eating Habits</h3>
+              <p>Analyzes food composition and feeding patterns</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="process-section">
+          <h2>How It Works</h2>
+          <div className="process-steps">
+            <div className="step">
+              <h3>1. Ingestion</h3>
+              <p>The capsule-shaped tag is consumed by sharks naturally</p>
+            </div>
+            <div className="step">
+              <h3>2. Data Collection</h3>
+              <p>Temperature changes confirm proper placement in the shark's stomach, enabling food composition analysis</p>
+            </div>
+            <div className="step">
+              <h3>3. Monitoring</h3>
+              <p>Collects depth and movement data over several days</p>
+            </div>
+            <div className="step">
+              <h3>4. Data Relay</h3>
+              <p>Information is transmitted to surface buoys or rigs, then relayed to satellites</p>
+            </div>
+            <div className="step">
+              <h3>5. Reusability</h3>
+              <p>The tag naturally passes through the shark and floats up for reuse</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="benefits-section">
+          <h2>Benefits</h2>
+          <ul className="benefits-list">
+            <li>Minimally invasive tracking method</li>
+            <li>Real-time data updates, even from beneath the surface</li>
+            <li>Reusable design reduces environmental impact</li>
+            <li>Comprehensive data collection for research</li>
+            <li>Enhanced understanding of shark behavior and movements</li>
+          </ul>
+        </section>
       </div>
     </div>
   );

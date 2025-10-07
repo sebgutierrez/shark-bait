@@ -1401,3 +1401,268 @@
   min-width: 3rem;
   padding: 0.25rem 0.25rem;
 }
+
+.sharklink-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sharklink-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sharklink-hero h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.sharklink-container section {
+  margin-bottom: 4rem;
+}
+
+.concept-section {
+  text-align: center;
+}
+
+.dark-mode .concept-section p {
+  color: white;
+}
+
+.light-mode .concept-section p {
+  color: #1a202c;
+}
+
+
+.image-placeholder {
+  background: var(--bg-secondary);
+  border: 2px dashed var(--accent-primary);
+  padding: 4rem;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  color: var(--text-secondary);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 1rem var(--shadow-color);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.process-steps {
+  display: grid;
+  gap: 2rem;
+}
+
+.step {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 1rem var(--shadow-color);
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 1rem var(--shadow-color);
+}
+
+@media (max-width: 768px) {
+  .sharklink-page {
+    padding: 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ...existing code...
+
+/* SharkLink Styles */
+.sharklink-page {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: var(--text-primary);
+}
+
+.sharklink-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 4rem 2rem;
+  background: var(--bg-secondary);
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 1rem var(--shadow-color);
+}
+
+.sharklink-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  text-wrap: nowrap;
+}
+
+.sharklink-container section {
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 1rem var(--shadow-color);
+}
+
+.concept-section h2,
+.features-section h2,
+.process-section h2,
+.benefits-section h2 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.image-placeholder {
+  background: var(--bg-primary);
+  border: 2px dashed var(--accent-primary);
+  padding: 4rem;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 1rem var(--shadow-color);
+  transition: transform 0.2s ease;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.process-steps {
+  display: grid;
+  gap: 2rem;
+}
+
+.step {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border-left: 4px solid var(--accent-primary);
+}
+
+.step h3 {
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+}
+
+.dark-mode .step p {
+  color: white;
+}
+
+.light-mode .step p {
+  color: #1a202c;
+}
+
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  background: var(--bg-primary);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 1rem var(--shadow-color);
+  display: flex;
+  align-items: center;
+}
+
+.benefits-list li::before {
+  content: "→";
+  color: var(--accent-primary);
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.dark-mode .benefits-list li {
+  color: white;
+}
+
+.light-mode .benefits-list li {
+  color: #1a202c;
+}
+
+@media (max-width: 768px) {
+  .sharklink-page {
+    padding: 1rem;
+  }
+
+  .sharklink-hero {
+    padding: 2rem 1rem;
+  }
+
+  .sharklink-hero h1 {
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sharklink-container section {
+    padding: 1.5rem;
+  }
+}
