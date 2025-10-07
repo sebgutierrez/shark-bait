@@ -5,7 +5,7 @@ import './App.css'
 import BuoyPNG from './assets/Buoy.png';
 import SharkLinkPNG from './assets/SharkLink.png';
 import WorldWindGlobe from './components/WorldWind';
-import Framework from './components/Framework'
+import Framework from './components/Framework';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
