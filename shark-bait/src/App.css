@@ -1155,8 +1155,6 @@
   position: relative;
 }
 
-// ...existing code...
-
 .navbar {
   box-shadow: 0 4px 20px var(--shadow-color);
   position: sticky;
@@ -1199,10 +1197,6 @@
     min-width: max-content;
   }
 }
-// ...existing code...
-
-// ...existing code...
-
 .layer-info-container {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -1290,8 +1284,6 @@
   font-style: italic;
 }
 
-// ...existing code...
-
 .tracker-container {
   flex: 1;
   position: relative;
@@ -1323,8 +1315,6 @@
   padding: 0.5rem 0 1rem 0;
   min-height: 5rem;  /* Add minimum height for content */
 }
-
-// ...existing code...
 
 .tracker-container {
   flex: 1;
@@ -1411,8 +1401,6 @@
   color: black;
 }
 
-// ...existing code...
-
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -1464,7 +1452,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  background: rgba(0, 168, 232, 0.75); // --accent-secondary
+  background: rgba(0, 168, 232, 0.75); 
 }
 
 .dark-mode .help-button {
@@ -1479,7 +1467,7 @@
   padding: 0.1rem 0.1rem;
   top: 12px; 
   right: 12px;
-  background: rgba(0, 168, 232, 0.75); // --accent-secondary
+  background: rgba(0, 168, 232, 0.75); 
 }
 
 .dark-mode .close-help {
@@ -1611,8 +1599,6 @@
     grid-template-columns: 1fr;
   }
 }
-
-// ...existing code...
 
 /* SharkLink Styles */
 .sharklink-page {
