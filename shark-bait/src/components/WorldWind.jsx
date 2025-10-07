@@ -281,6 +281,16 @@ export default function WorldWindGlobe({
 							className="globe-canvas"
 						/>
 					</div>
+					<div className="data-layer-sources">
+						<a
+						    href="https://neo.gsfc.nasa.gov/view.php?datasetId=MYD28M"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="sources-link"
+						>
+							Data sourced from PACE
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>

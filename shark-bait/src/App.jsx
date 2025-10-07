@@ -121,13 +121,13 @@ function HomePage({ setCurrentPage, darkMode }) {
         <div className="feature-card">
           <div className="feature-icon">🔬</div>
           <h3>An alternative framework for analyzing shark movement</h3>
-          <p>Using network theory to model and analyze the interconnectedness of shark movement through hotspots such as eddy currents</p>
+          <p>Using network theory to model and analyze the interconnectivity of shark movement through hotspots such as eddy currents</p>
           <div className="feature-badge">Advanced Analytics</div>
         </div>
         <div className="feature-card">
           <div className="feature-icon">🌍</div>
           <h3>Conservation Impact</h3>
-          <p>Helping support shark conservation through Shark Link -  a less invasive method for tracking shark movement</p>
+          <p>Helping support shark conservation through Shark Link—a less invasive method for tracking shark movement</p>
           <div className="feature-badge">Global Scale</div>
         </div>
       </div>
@@ -172,21 +172,21 @@ function AboutPage({ darkMode }) {
         </div> */}
         
         <section className="about-section mission-section">
-          <h2>Our Mission</h2>
+          <h2>NASA Space Apps Challenge</h2>
           <p>
-            Earth's ocean is one of the most powerful habitats in our universe, supporting a range 
-            of life that sustains ecosystems and habitability across the globe. Sharks are important 
-            apex predators, regulating prey levels and ensuring species diversity needed for healthy 
-            ecosystems. However, sharks are facing unprecedented fishing pressure.
+            The NASA Space Apps Challenge—apart of the NASA International Space Apps Challenge—is an open hackathon bringing people off different backgrounds, ages, and skill sets to collaborate on a weekend long project solving real-world problems. Our team attended the local event in Houston, TX, on October 4-5, 2025 with over 30 teams participating. The best projects will be nominated to be judged by space agency experts.
           </p>
-          <p>
-            Our mission is to create a mathematical framework for identifying sharks and predicting 
-            their foraging habitats using NASA satellite data, enabling the protection of crucial 
-            shark habitats and supporting marine conservation efforts worldwide.
-          </p>
+          <a 
+            href="https://www.spaceappschallenge.org/about/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="source-link"
+          >
+            Learn more
+          </a>
         </section>
 
-        <section className="about-section challenge-section">
+        {/* <section className="about-section challenge-section">
           <h2>The Challenge</h2>
           <p>
             While it is common to measure photosynthetic activity in the ocean from space, it is 
@@ -198,70 +198,7 @@ function AboutPage({ darkMode }) {
             <li>Tracking phytoplankton communities and their relationship to shark behavior</li>
             <li>Developing predictive models for shark habitat protection</li>
           </ul>
-        </section>
-
-        <section className="about-section data-section">
-          <h2>NASA Data Integration</h2>
-          <div className="data-sources">
-            <div className="data-card">
-              <div className="data-icon">🛰️</div>
-              <h3>SWOT Mission</h3>
-              <p>Surface Water and Ocean Topography data helps us track ocean eddies where sharks may choose to live</p>
-            </div>
-            <div className="data-card">
-              <div className="data-icon">🌊</div>
-              <h3>PACE Mission</h3>
-              <p>Plankton, Aerosols, Clouds, and Ecosystems mission provides crucial phytoplankton tracking</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="about-section science-section">
-          <h2>The Science</h2>
-          <p>
-            There are several trophic steps (steps in the food chain) between phytoplankton 
-            and sharks. Our mathematical model accounts for:
-          </p>
-          <div className="science-factors">
-            <div className="factor-item">
-              <span className="factor-icon">🌡️</span>
-              <div>
-                <strong>Temperature Effects</strong>
-                <p>Understanding how water temperature influences shark behavior and habitat selection</p>
-              </div>
-            </div>
-            <div className="factor-item">
-              <span className="factor-icon">📊</span>
-              <div>
-                <strong>Depth Patterns</strong>
-                <p>Modeling when sharks are at the surface versus deeper in the ocean</p>
-              </div>
-            </div>
-            <div className="factor-item">
-              <span className="factor-icon">🔬</span>
-              <div>
-                <strong>Trophic Links</strong>
-                <p>Connecting phytoplankton data to apex predator foraging behavior</p>
-              </div>
-            </div>
-            <div className="factor-item">
-              <span className="factor-icon">🌀</span>
-              <div>
-                <strong>Ocean Eddies</strong>
-                <p>Identifying circular currents that concentrate prey and attract sharks</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="about-section innovation-section">
-          <h2>Next-Generation Tagging</h2>
-          <p>
-            We're developing a conceptual model for advanced shark tags that measure not only 
-            where sharks are, but also what they are eating, transmitting real-time data to 
-            enable development of predictive models for conservation.
-          </p>
-        </section>
+        </section> */}
 
         <section className="about-section tech-section">
           <h2>Technology Stack</h2>
@@ -275,12 +212,12 @@ function AboutPage({ darkMode }) {
               <span>OpenLayers</span>
             </div>
             <div className="tech-item">
-              <span className="tech-icon">🛰️</span>
-              <span>NASA SWOT</span>
+              <span className="tech-icon">🐍</span>
+              <span>Python</span>
             </div>
             <div className="tech-item">
-              <span className="tech-icon">🌊</span>
-              <span>NASA PACE</span>
+              <span className="tech-icon">⚙️</span>
+              <span>AWS</span>
             </div>
           </div>
         </section>
@@ -288,53 +225,46 @@ function AboutPage({ darkMode }) {
         <section className="about-section impact-section">
           <h2>Ecological Impact</h2>
           <p>
-            By understanding shark locations and behavior, we can assess the ecological 
+            By understanding shark habitats and behavior, we can assess the ecological 
             consequences of their movements and protect the critical habitats they depend on. 
-            This work is essential for maintaining healthy marine ecosystems and ensuring 
-            species diversity for future generations.
+            Our solution explored ways to improve research and support shark conservation efforts through end-to-end solutions: Shark Link for data collection and Shark Bait for analysis.
           </p>
         </section>
 
         <section className="about-section contact-section">
           <h2>Get Involved</h2>
           <p>
-            Ready to explore shark habitats? Head to the Tracker page to view real-time data 
-            and predictive models. Together, we can protect these magnificent apex predators 
-            and the ecosystems they support.
+            While we try to innovate on tagging technology and shark behavior analysis, there are shark conservation efforts that are putting the latest research into practice <i>right now</i>. We encourage you to explore these organizations.
           </p>
-          
-          <div className="conservation-links">
-            <h3>Support Shark Conservation</h3>
-            <div className="org-grid">
-              <a href="https://www.sharks.org/" target="_blank" rel="noopener noreferrer" className="org-link">
-                <span className="org-icon">🦈</span>
-                <div className="org-info">
-                  <h4>Shark Research Institute</h4>
-                  <p>Global shark research and conservation programs</p>
-                </div>
-              </a>
-              <a href="https://www.projectaware.org/" target="_blank" rel="noopener noreferrer" className="org-link">
-                <span className="org-icon">🌊</span>
-                <div className="org-info">
-                  <h4>Project AWARE</h4>
-                  <p>Ocean conservation through diver community action</p>
-                </div>
-              </a>
-              <a href="https://www.sharkstewards.org/" target="_blank" rel="noopener noreferrer" className="org-link">
-                <span className="org-icon">🛡️</span>
-                <div className="org-info">
-                  <h4>Shark Stewards</h4>
-                  <p>Protecting sharks through science and advocacy</p>
-                </div>
-              </a>
-              <a href="https://www.sharktrust.org/" target="_blank" rel="noopener noreferrer" className="org-link">
-                <span className="org-icon">🔬</span>
-                <div className="org-info">
-                  <h4>Shark Trust</h4>
-                  <p>Scientific research and shark conservation initiatives</p>
-                </div>
-              </a>
-            </div>
+          <div className="org-grid">
+            <a href="https://www.sharks.org/" target="_blank" rel="noopener noreferrer" className="org-link">
+              <span className="org-icon">🦈</span>
+              <div className="org-info">
+                <h4>Shark Research Institute</h4>
+                <p>Global shark research and conservation programs</p>
+              </div>
+            </a>
+            <a href="https://www.projectaware.org/" target="_blank" rel="noopener noreferrer" className="org-link">
+              <span className="org-icon">🌊</span>
+              <div className="org-info">
+                <h4>Project AWARE</h4>
+                <p>Ocean conservation through diver community action</p>
+              </div>
+            </a>
+            <a href="https://www.sharkstewards.org/" target="_blank" rel="noopener noreferrer" className="org-link">
+              <span className="org-icon">🛡️</span>
+              <div className="org-info">
+                <h4>Shark Stewards</h4>
+                <p>Protecting sharks through science and advocacy</p>
+              </div>
+            </a>
+            <a href="https://www.sharktrust.org/" target="_blank" rel="noopener noreferrer" className="org-link">
+              <span className="org-icon">🔬</span>
+              <div className="org-info">
+                <h4>Shark Trust</h4>
+                <p>Scientific research and shark conservation initiatives</p>
+              </div>
+            </a>
           </div>
         </section>
       </div>
@@ -395,7 +325,7 @@ function TrackerPage() {
         />
       </div>
       <div className="">
-        <div className="layer-header">Diving into Key Characteristics of Shark Habitats</div>
+        <div className="layer-header">Diving into Characteristics of Shark Habitats</div>
         <div className="layer-info-container" style={{marginBottom: "4rem"}}>
           <nav className="layer-nav">
             {Object.entries(layerInfo).map(([key, layer]) => (

@@ -157,6 +157,7 @@
 
 .globe-container {
   /* background-color: #4a4a4a; */
+  position: relative;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 0 0.75rem 0.75rem 0;
@@ -207,6 +208,10 @@
   color: #e0e0e0;
 }
 
+.light-mode .layer-control label {
+  color: black;
+}
+
 .layer-control input[type="checkbox"] {
   width: 18px;
   height: 18px;
@@ -251,4 +256,21 @@
   border-bottom: 1px solid gray;
   width: 100%;
   margin-bottom: 0.75rem;
+}
+
+.data-layer-sources {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  color: #ffffff; /* Light text for contrast */
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+}
+
+
+.sources-link {
+
 }

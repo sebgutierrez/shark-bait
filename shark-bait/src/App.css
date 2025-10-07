@@ -430,8 +430,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
-  max-width: 1400px;
-  margin: 0 auto;
   padding: 4rem 2rem;
   position: relative;
   z-index: 1;
@@ -1215,7 +1213,6 @@
   font-weight: 500;
 }
 
-
 .layer-nav-item::after {
   content: '';
   position: absolute;
@@ -1229,6 +1226,10 @@
 
 .dark-mode .layer-nav-item {
   color: white;
+}
+
+.light-theme .layer-nav-item: {
+  color: black;
 }
 
 .layer-nav-item:hover::after,
@@ -1374,6 +1375,10 @@
   color: white;
 }
 
+.light-mode .header-title {
+  color: black;
+}
+
 // ...existing code...
 
 .header-content {
@@ -1510,10 +1515,10 @@
 }
 
 .features-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin: 2rem 0;
 }
 
 .feature-card {
@@ -1549,7 +1554,7 @@
 .benefits-list li {
   padding: 1rem;
   margin-bottom: 1rem;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border-radius: 0.5rem;
   box-shadow: 0 0.25rem 1rem var(--shadow-color);
 }
@@ -1691,10 +1696,10 @@
 }
 
 .features-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin: 0rem 0 2rem 0;
 }
 
 .feature-card {
