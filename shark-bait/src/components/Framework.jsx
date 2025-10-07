@@ -30,7 +30,25 @@ export default function Framework() {
       subsections: [
         {
           name: 'Overview',
-          content: 'Using graphs or networks as a model has the benefit of simplifying complex shark movement behavior and allowing us to leverage powerful graph algorithms for hypothesizing: shark movement strategies between habitats, proximity of their habitats, shark density in these habitats, and length of stay in these hotspots for feeding.'
+          content: 'Using graphs or networks as a model has the benefit of simplifying complex shark movement behavior and allowing us to leverage powerful graph algorithms for hypothesizing:',
+          gridItems: [
+            {
+              title: 'Movement Strategies',
+              description: 'Shark movement strategies between habitats'
+            },
+            {
+              title: 'Habitat Proximity',
+              description: 'Proximity of their habitats'
+            },
+            {
+              title: 'Shark Density',
+              description: 'Shark density in these habitats'
+            },
+            {
+              title: 'Feeding Duration',
+              description: 'Length of stay in these hotspots for feeding'
+            }
+          ]
         },
         {
           name: 'Network Structure',
@@ -74,6 +92,16 @@ export default function Framework() {
                     <div key={index} className="subsection">
                       <h4>{subsection.name}</h4>
                       <p>{subsection.content}</p>
+                      {subsection.gridItems && (
+                        <div className="hypothesis-grid">
+                          {subsection.gridItems.map((item, itemIndex) => (
+                            <div key={itemIndex} className="hypothesis-item">
+                              <h5>{item.title}</h5>
+                              <p>{item.description}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
