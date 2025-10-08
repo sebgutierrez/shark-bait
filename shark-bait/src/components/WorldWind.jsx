@@ -148,7 +148,6 @@ export default function WorldWindGlobe({
 									<li>Bathymetry reveals ocean depth data</li>
 									<li>Chlorophyll indicates marine life activity areas</li>
 									<li>Shark Locations shows tracked shark positions</li>
-									<li>Click the Discover button to view the model's shark hotspot predictions and play with the toggles to see how they influenced the predictions</li>
 								</ul>
 							</div>
 						)}

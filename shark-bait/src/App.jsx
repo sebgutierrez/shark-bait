@@ -235,13 +235,13 @@ function TrackerPage() {
     sst: {
       name: "Sea Surface Temperature",
       description: "Sea surface temperature (SST) plays a crucial role in shark habitability. Sharks can be cold-blooded or warm-blooded, and they will dive, surface, or migrate to regulate their body temperature. Increasing ocean temperatures may affect their movement patterns, and these effects can cascade throughout other ocean species.",
-      source: "Data sourced from NOAA Fisheries",
+      source: "Information gathered from NOAA Fisheries",
       sourceUrl: "https://www.fisheries.noaa.gov/topic/marine-life-viewing-guidelines"
     },
     salinity: {
       name: "Sea Salinity",
       description: "A shark's biology makes it challenging to stay afloat in freshwaters. Researchers have found that sharks lack a swim bladder, a gas-filled room that would help make them more buoyant. Regions with preferred salinity levels can help estimate shark-inhabitable locations.",
-      source: "Data sourced from Smithsonian Magazine",
+      source: "Information gathered from Smithsonian Magazine",
       sourceUrl: "https://www.smithsonianmag.com/smart-news/heres-why-sharks-prefer-salt-water-180953985/"
     },
     bathymetry: {

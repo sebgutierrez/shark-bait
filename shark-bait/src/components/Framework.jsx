@@ -15,7 +15,7 @@ export default function Framework() {
       subsections: [
         {
           name: 'Model',
-          content: 'Leveraging advancements in computer vision, we can develop a numerical model to identify potential shark feeding grounds or habitats (e.g. in mesoscale eddies). Convolutional Neural Network (CNN) architectures can simultaneously analyze spatial information across multiple variables and across time. Taking NASA satellite data as input, the output would be a heatmap with areas highlighted with high probability for shark feeding ground hotspots. It\'s important that each model is tuned to different shark species as their migration and habitat conditions vary (e.g. warm-blooded vs cold-blooded species).'
+          content: 'Leveraging advancements in computer vision, we can develop a numerical model to identify potential shark feeding grounds or habitats (e.g. in mesoscale eddies). Convolutional Neural Network (CNN) architectures can simultaneously analyze spatial information across multiple variables and across time. Taking NASA satellite data as input, the output would be a heatmap with areas highlighted with high probability for shark feeding ground hotspots. It\'s important that each model is tuned to different shark species as their migration and habitat conditions vary.'
         },
         {
           name: 'Verification',
