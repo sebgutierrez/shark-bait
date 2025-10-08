@@ -357,7 +357,7 @@ function SharkLink() {
               </div>
               <div className="step">
                 <h3>4. Data Relay</h3>
-                <p>Information is continuously transmitted to surface buoys or oil/gas rigs, then relayed to NASA satellites</p>
+                <p>Information is continuously transmitted to reciever stations such as surface buoys or rigs, and then relayed to NASA satellites</p>
               </div>
               <div className="step">
                 <h3>5. Reusability</h3>
