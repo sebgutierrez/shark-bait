@@ -113,7 +113,7 @@
   width: 100vw;
   left: 0;
   right: 0;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 .light-mode .navbar { background: linear-gradient(135deg, #0077be 0%, #00a8e8 100%); }
@@ -126,8 +126,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
   width: 100%;
+  position: relative;
+  min-height: 80px;
 }
 
 .nav-logo { display: flex; align-items: center; gap: 1rem; color: white; font-size: 1.8rem; font-weight: 800; cursor: pointer; transition: transform 0.3s ease; }
@@ -138,6 +139,38 @@
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1000;
+}
+
+.hamburger-menu span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu span.open:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu span.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu span.open:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .nav-right { display: flex; align-items: center; gap: 2rem; }
@@ -794,15 +827,29 @@
   box-shadow: 0 0.25rem 1rem var(--shadow-color);
 }
 
-.concept-section, .features-section, .process-section, .benefits-section {
+.concept-image {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
+
+.concept-section p {
+  text-align: left;
+  line-height: 2rem;
+}
+
+.features-section, .process-section, .benefits-section {
   text-align: center;
   line-height: 2rem;
 }
 
 .concept-section h2, .features-section h2, .process-section h2, .benefits-section h2 {
-  color: var(--text-primary);
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a3f7 50%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   text-align: center;
 }
 
@@ -862,11 +909,7 @@
 .dark-mode .benefits-list li { color: white; }
 .light-mode .benefits-list li { color: #4a5568; }
 
-.concept-section { display: flex; flex-direction: row-reverse; }
-
 .concept-content p { padding: 0 2rem; }
-
-.concept-image img { margin: 0 2rem; }
 
 /* Framework Component */
 .framework-section {
@@ -1038,15 +1081,99 @@
 .dark-mode .hypothesis-item p { color: rgba(255, 255, 255, 0.75); }
 .light-mode .hypothesis-item p { color: #4a5568; }
 
-/* Media Queries */
 @media (max-width: 768px) {
+  .concept-section p { text-align: center; }
   .tracker-header h1 { font-size: 2rem; }
   .hypothesis-grid { grid-template-columns: 1fr; }
-  .nav-container { padding: 0 1rem; height: 70px; }
+  
+  .hamburger-menu {
+    display: flex;
+    margin-right: 1rem;
+  }
+  
+  .nav-container { 
+    padding: 0 1rem; 
+    min-height: 70px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
   .nav-logo { font-size: 1.4rem; }
   .logo-icon { font-size: 2rem; }
-  .nav-menu { gap: 0.25rem; }
-  .nav-menu a { font-size: 0.9rem; padding: 0.6rem 1rem; }
+  
+  .nav-right {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    z-index: 999;
+  }
+  
+  .dark-mode .nav-right {
+    background: #1a2c42;
+  }
+
+  .dark-mode .nav-menu li.active a {
+    background: var(--bg-primary);
+  }
+  
+  .light-mode .nav-right {
+    background: #0077be;
+  }
+  
+  .nav-right.mobile-open {
+    max-height: 400px;
+    padding: 1rem 0 0.5rem 0;
+  }
+  
+  .nav-menu { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    padding: 0;
+    
+  }
+  
+  .nav-menu li {
+    width: 80vw;
+    text-align: center;
+  }
+  
+  .nav-menu a { 
+    font-size: 1.1rem; 
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    border-radius: 2rem;
+  }
+  
+  .nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: none;
+  }
+  
+  .nav-menu li.active a {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+  }
+  
+  .theme-toggle {
+    margin: 1rem auto;
+    align-self: center;
+  }
+  
+  
   .hero-title { font-size: 2.5rem; }
   .hero-subtitle { font-size: 1.1rem; }
   .cta-button { padding: 1rem 2.5rem; font-size: 1.1rem; margin-top: 3rem; }
@@ -1056,16 +1183,160 @@
   .features-grid { grid-template-columns: 1fr; padding: 2rem 1rem; }
   .mission-banner { padding: 2.5rem 1.5rem; margin: 2rem 1rem 0; }
   .mission-banner h2 { font-size: 2rem; }
-  .about-container { margin: 0 0.5rem; }
-  .about-section { padding: 2rem 1.5rem; }
-  .about-hero h1 { font-size: 2.5rem; }
-  .factor-item { flex-direction: column; gap: 1rem; }
-  .tech-stack { grid-template-columns: repeat(2, 1fr); }
-  .conservation-links { margin: 1.5rem 0; padding: 1rem; }
-  .org-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .navbar { position: fixed; width: 100%; }
-  .nav-container { padding: 0 1rem; height: 70px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .nav-menu { padding-right: 1rem; flex-wrap: nowrap; min-width: max-content; }
+  
+  /* About Page Mobile Styles */
+  .about-page { 
+    padding: 1.5rem 0.75rem; 
+  }
+  
+  .about-container { 
+    margin: 0;
+    border-radius: 16px;
+  }
+  
+  .about-section { 
+    padding: 2rem 1.25rem; 
+  }
+  
+  .about-section h2 { 
+    font-size: 1.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .about-section h2::before {
+    width: 40px;
+    height: 4px;
+  }
+  
+  .about-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .about-hero h1 { 
+    font-size: 2.5rem; 
+  }
+  
+  .about-tagline {
+    font-size: 1.1rem;
+  }
+  
+  .data-sources {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .data-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .data-icon {
+    font-size: 3rem;
+  }
+  
+  .data-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .data-card p {
+    font-size: 1rem;
+  }
+  
+  .science-factors {
+    gap: 1.5rem;
+  }
+  
+  .factor-item { 
+    flex-direction: column; 
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .factor-icon {
+    font-size: 2.5rem;
+  }
+  
+  .factor-item strong {
+    font-size: 1.15rem;
+  }
+  
+  .factor-item p {
+    font-size: 0.95rem;
+  }
+  
+  .about-list li {
+    font-size: 1rem;
+    line-height: 1.8;
+    padding-left: 1.75rem;
+  }
+  
+  .about-list li:before {
+    font-size: 1.25rem;
+  }
+  
+  .tech-stack { 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .tech-item {
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .tech-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .conservation-links { 
+    margin: 1.5rem 0; 
+    padding: 1rem; 
+  }
+  
+  .conservation-links h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .org-grid { 
+    grid-template-columns: 1fr; 
+    gap: 1rem; 
+  }
+  
+  .org-link {
+    padding: 1.25rem;
+  }
+  
+  .org-icon {
+    font-size: 1.75rem;
+    margin-right: 12px;
+  }
+  
+  .org-info h4 {
+    font-size: 1rem;
+  }
+  
+  .org-info p {
+    font-size: 0.85rem;
+  }
+  
+  .contact-section {
+    margin: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .contact-section h2 {
+    font-size: 1.75rem;
+  }
+  
+  .contact-email {
+    font-size: 1.1rem;
+    padding: 0.85rem 1.5rem;
+  }
+  
   .sharklink-page { padding: 1rem; }
   .sharklink-hero { padding: 2rem 1rem; }
   .sharklink-hero h1 { font-size: 2rem; }
@@ -1078,4 +1349,13 @@
   .framework-icon { font-size: 2rem; }
   .framework-card-header h3 { font-size: 1.25rem; }
   .framework-content { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .nav-logo { font-size: 1.2rem; }
+  .logo-icon { font-size: 1.8rem; }
+  .nav-menu a { 
+    font-size: 1rem; 
+    padding: 0.9rem;
+  }
 }

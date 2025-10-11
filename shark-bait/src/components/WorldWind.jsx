@@ -10,11 +10,10 @@ import "./WorldWind.css";
 export default function WorldWindGlobe({
 	initialLatitude = 0,
 	initialLongitude = 0,
-	initialRange = 4e7,
+	initialRange = 5e7,
 	markers = [],
 	style = {},
 }) {
-	const [showHelp, setShowHelp] = useState(false);
 	const canvasRef = useRef(null);
 	const wwdRef = useRef(null);
 	
@@ -76,19 +75,17 @@ export default function WorldWindGlobe({
 			mounted = false;
 			try {
 				if (wwdRef.current) {
-					// remove layers and stop rendering
+
 					const wwdInst = wwdRef.current;
 					const layers = wwdInst.layers ? Array.from(wwdInst.layers) : [];
 					layers.forEach((l) => {
 						try {
 							wwdInst.removeLayer(l);
 						} catch (e) {
-							/* ignore */
 						}
 					});
 				}
 			} catch (e) {
-				// ignore cleanup errors
 			}
 			wwdRef.current = null;
 			window.removeEventListener("resize", () => {});
@@ -121,36 +118,7 @@ export default function WorldWindGlobe({
 					<div className="panel-header">
 						<div className="header-content">
 							<span className="header-title">Data Layers</span>
-							<button 
-								className="help-button"
-								onClick={() => setShowHelp(!showHelp)}
-								aria-label="Toggle help guide"
-							>
-								?
-							</button>
 						</div>
-						{showHelp && (
-							<div className="help-popup">
-								<div className="" style={{display: "flex", width: "100%", justifyContent: "flex-end"}}>
-									<button 
-										className="close-help"
-										onClick={() => setShowHelp(false)}
-										aria-label="Close help guide"
-									>
-										×
-									</button>
-								</div>
-								<h3>Layer Guide</h3>
-								<ul>
-									<li>Use checkboxes to toggle data layers on/off</li>
-									<li>Sea Surface Temperature shows water temperature variations</li>
-									<li>Sea Salinity displays salt content levels</li>
-									<li>Bathymetry reveals ocean depth data</li>
-									<li>Chlorophyll indicates marine life activity areas</li>
-									<li>Shark Locations shows tracked shark positions</li>
-								</ul>
-							</div>
-						)}
 					</div>
 					<div style={{display: "flex", flexDirection: "column"}}>
 						{Object.entries(layerConfig).map(([id, layer]) => (
@@ -181,7 +149,7 @@ export default function WorldWindGlobe({
 					</div>
 					<div className="data-layer-sources worldwind">
 						<a
-						    href="https://github.com/NASAWorldWind/WebWorldWind"
+							href="https://github.com/NASAWorldWind/WebWorldWind"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="sources-link"
@@ -189,9 +157,9 @@ export default function WorldWindGlobe({
 							3D Visuals produced using NASA WorldWind
 						</a>
 					</div>
-					<div className="data-layer-sources">
+					<div className="data-layer-sources neo">
 						<a
-						    href="https://neo.gsfc.nasa.gov/view.php?datasetId=MYD28M"
+							href="https://neo.gsfc.nasa.gov/view.php?datasetId=MYD28M"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="sources-link"

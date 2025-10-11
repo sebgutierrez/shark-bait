@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import BuoyPNG from './assets/Buoy.png';
 import SharkLinkPNG from './assets/SharkLink.png';
@@ -10,13 +8,19 @@ import Framework from './components/Framework';
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
   const [darkMode, setDarkMode] = useState(true)
-
-  const markers = [
-    { id: 'nyc', latitude: 40.7128, longitude: -74.0060, label: 'New York' },
-  ];
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const toggleTheme = () => {
     setDarkMode(!darkMode)
+  }
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page)
+    setMobileMenuOpen(false)
   }
 
   const renderPage = () => {
@@ -42,19 +46,28 @@ function App() {
             <span className="logo-icon">🦈</span>
             <span className="logo-text">Shark Bait</span>
           </div>
-          <div className="nav-right">
+          <button 
+            className="hamburger-menu" 
+            onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
+          >
+            <span className={mobileMenuOpen ? 'open' : ''}></span>
+            <span className={mobileMenuOpen ? 'open' : ''}></span>
+            <span className={mobileMenuOpen ? 'open' : ''}></span>
+          </button>
+          <div className={`nav-right ${mobileMenuOpen ? 'mobile-open' : ''}`}>
             <ul className="nav-menu">
               <li className={currentPage === 'home' ? 'active' : ''}>
-                <a onClick={() => setCurrentPage('home')}>Home</a>
+                <a onClick={() => handlePageChange('home')}>Home</a>
               </li>
               <li className={currentPage === 'shark-link' ? 'active' : ''}>
-                <a onClick={() => setCurrentPage('shark-link')}>Shark Link</a>
+                <a onClick={() => handlePageChange('shark-link')}>Shark Link</a>
               </li>
               <li className={currentPage === 'tracker' ? 'active' : ''}>
-                <a onClick={() => setCurrentPage('tracker')}>Shark Bait</a>
+                <a onClick={() => handlePageChange('tracker')}>Shark Bait</a>
               </li>
               <li className={currentPage === 'about' ? 'active' : ''}>
-                <a onClick={() => setCurrentPage('about')}>About</a>
+                <a onClick={() => handlePageChange('about')}>About</a>
               </li>
             </ul>
             <button className="theme-toggle" onClick={toggleTheme} title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
@@ -95,9 +108,9 @@ function HomePage({ setCurrentPage, darkMode }) {
         </div>
         <div className="feature-card">
           <div className="feature-icon">🔬</div>
-          <h3>An alternative framework for analyzing shark movement</h3>
-          <p>Using network theory to model and analyze the interconnectivity of shark movement through hotspots such as eddy currents</p>
-          <div className="feature-badge">Advanced Analytics</div>
+          <h3>An Alternative Framework</h3>
+          <p>Using graph theory to model shark movement and foraging behavior</p>
+          <div className="feature-badge">Graph Theory</div>
         </div>
         <div className="feature-card">
           <div className="feature-icon">🌍</div>
@@ -140,20 +153,6 @@ function AboutPage({ darkMode }) {
             Learn more
           </a>
         </section>
-
-        {/* <section className="about-section challenge-section">
-          <h2>The Challenge</h2>
-          <p>
-            While it is common to measure photosynthetic activity in the ocean from space, it is 
-            far more challenging to track top predators. Our platform addresses this by:
-          </p>
-          <ul className="about-list">
-            <li>Identifying foraging hotspots using satellite data</li>
-            <li>Quantifying ecological links between physical oceanographic features and predator movements</li>
-            <li>Tracking phytoplankton communities and their relationship to shark behavior</li>
-            <li>Developing predictive models for shark habitat protection</li>
-          </ul>
-        </section> */}
 
         <section className="about-section tech-section">
           <h2>Technology Stack</h2>
@@ -258,19 +257,12 @@ function TrackerPage() {
     }
   };
 
-  // const sharkData = [
-  //   {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 37.11138, lon: -75.702383},
-  //   {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 33.88375, lon: -77.99878},
-  //   {dataset: "ACT.BKTIP", species: "blacktip shark", scientific: "Carcharhinus limbatus", lat: 36.67747, lon: -75.89253},
-  //   // ...more shark data...
-  // ];
-
   return (
     <div className="tracker-page">
       <div className="tracker-header">
         <h1>Shark Bait Locator</h1>
         <p>See how different NASA satellite measurements influence shark locations. Filter for the data layers you want to see.</p>
-        <p style={{fontSize: "0.75rem"}}>[ Unfortunately, data layer functionality was not fully implemented in time so this is a prototype. ]</p>
+        <p style={{fontSize: "0.75rem"}}>[Unfortunately, data layer functionality was not fully implemented in time so this is a prototype.]</p>
       </div>
       <div className="tracker-container">
         <WorldWindGlobe 
@@ -327,16 +319,15 @@ function SharkLink() {
           <section className="concept-section">
             <div className="concept-content">
               <h2>Concept</h2>
+              <div className="concept-image">
+                <img src={SharkLinkPNG} alt="" height={250} width={250} style={{borderRadius: "0.75rem"}}></img>
+              </div>
               <p style={{paddingBottom: "1rem"}}>
                 We developed a new conceptual model for a shark tracking tag that minimizes human 
                 intervention and harm for the sharks while maximizing data intake and reusability. 
                 While NASA satellites capture valuable environmental data, accurate field measurements 
                 remain crucial for tracking sharks effectively.
               </p>
-            </div>
-            <div className="concept-image">
-              <img src={SharkLinkPNG} alt="" height={250} width={250} style={{borderRadius: "0.75rem"}}></img>
-              {/* <div className="image-placeholder">Concept Image of Shark Link Capsule</div> */}
             </div>
           </section>
 
@@ -365,32 +356,6 @@ function SharkLink() {
               </div>
             </div>
           </section>
-
-          {/* <section className="features-section">
-            <h2>Key Features</h2>
-            <div className="features-grid">
-              <div className="feature-card">
-                <span className="feature-icon">📍</span>
-                <h3>Location</h3>
-                <p>Precise tracking of shark movements and migration patterns</p>
-              </div>
-              <div className="feature-card">
-                <span className="feature-icon">🌡️</span>
-                <h3>Temperature</h3>
-                <p>Monitors environmental conditions and confirms proper placement</p>
-              </div>
-              <div className="feature-card">
-                <span className="feature-icon">📊</span>
-                <h3>Depth</h3>
-                <p>Tracks vertical movement and diving patterns</p>
-              </div>
-              <div className="feature-card">
-                <span className="feature-icon">🍽️</span>
-                <h3>Eating Habits</h3>
-                <p>Analyzes food composition and feeding patterns</p>
-              </div>
-            </div>
-          </section> */}
 
           <section className="benefits-section">
             <h2>Benefits</h2>
